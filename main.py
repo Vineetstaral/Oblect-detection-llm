@@ -19,7 +19,7 @@ uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     # Display uploaded image
     image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+    st.image(image, caption='Uploaded Image', use_container_width=True)
 
     # Process the image and run object detection
     st.write("Detecting objects...")
@@ -62,4 +62,4 @@ if uploaded_file is not None:
         draw.text((box[0], box[1]), f"{model.config.id2label[label.item()]}: {round(score.item(), 3)}", fill="red")
 
     # Display the image with bounding boxes
-    st.image(image, caption='Detected Objects', use_column_width=True)
+    st.image(image, caption='Detected Objects', use_container_width=True)
